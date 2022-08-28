@@ -7,13 +7,16 @@ PLease follow the instructions to clone & execute.
 Instructions:
 
 Clone the repo
-git clone <url>
+
+git clone (https://github.com/ddilip9/EnergyAustraliaCodingTest.git)
 
 Install Dependencies:
+
 npm install
 npm i --save mocha chai supertest
 
 To run the test
+
 npm run test:awesome
 
 Observations on the API specs and model:
