@@ -1,0 +1,584 @@
+{
+  "stats": {
+    "suites": 13,
+    "tests": 12,
+    "passes": 3,
+    "pending": 0,
+    "failures": 9,
+    "start": "2022-08-28T19:47:40.747Z",
+    "end": "2022-08-28T19:47:42.454Z",
+    "duration": 1707,
+    "testsRegistered": 12,
+    "passPercent": 25,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "428d6db5-886d-4468-9a01-8393d622fd7b",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ec806705-611b-4a10-8d6a-28d62212637e",
+          "title": "Music festival Data sanity",
+          "fullFile": "/Users/dilipdronadula/Documents/Workspace/EnergyAustraliaCodingTest/test/FestivalDataAPITest.js",
+          "file": "/test/FestivalDataAPITest.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should return 200 status code",
+              "fullTitle": "Music festival Data sanity should return 200 status code",
+              "timedOut": false,
+              "duration": 245,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const resData = await axios.get(baseUrl, apiEndpoint);\nexpect(resData.status).to.equal(200);\n//console.log(resData);",
+              "err": {},
+              "uuid": "e4dc0c4b-f484-4b5e-b1e2-fed46b2b9c5c",
+              "parentUUID": "ec806705-611b-4a10-8d6a-28d62212637e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e4dc0c4b-f484-4b5e-b1e2-fed46b2b9c5c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 245,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "ea71d344-0474-4ea1-9ce8-f6b65089db84",
+          "title": "Music festival data GET API test",
+          "fullFile": "/Users/dilipdronadula/Documents/Workspace/EnergyAustraliaCodingTest/test/FestivalDataAPITest.js",
+          "file": "/test/FestivalDataAPITest.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should successfully pass the test for get api with status not null",
+              "fullTitle": "Music festival data GET API test should successfully pass the test for get api with status not null",
+              "timedOut": false,
+              "duration": 103,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request(baseUrl)\n  .get(apiEndpoint)\n  .set('Accept', 'application/json')\n  .set('Content-Type', 'application/json')\n  .end(function (err, res) {\n    expect(res.statusCode).to.be.equal(200);\n    expect(res.body.name).to.not.be.null;\n    expect(res.body.bands).to.not.be.null;\n    done();\n  });",
+              "err": {},
+              "uuid": "48300a5e-2a68-4934-98fe-1e3eb26c15d3",
+              "parentUUID": "ea71d344-0474-4ea1-9ce8-f6b65089db84",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "48300a5e-2a68-4934-98fe-1e3eb26c15d3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 103,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "8d3c14a2-7e9b-4110-9eb7-50aa23e07d15",
+          "title": "Music festival data test suite",
+          "fullFile": "/Users/dilipdronadula/Documents/Workspace/EnergyAustraliaCodingTest/test/FestivalDataAPITest.js",
+          "file": "/test/FestivalDataAPITest.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "74e64411-8a07-4aed-8397-5c91b1b57f95",
+              "title": "GET Request test suite 1",
+              "fullFile": "/Users/dilipdronadula/Documents/Workspace/EnergyAustraliaCodingTest/test/FestivalDataAPITest.js",
+              "file": "/test/FestivalDataAPITest.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Verify if response adheres to API spec Model",
+                  "fullTitle": "Music festival data test suite GET Request test suite 1 Verify if response adheres to API spec Model",
+                  "timedOut": false,
+                  "duration": 284,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "let res = await supertest(baseUrl).get(apiEndpoint).retry(2)\n  .set('Accept', 'application/json')\n  .set('Content-Type', 'application/json');\nres.should.be.json();\nresDataModel.validateAPIModelResponse(res);",
+                  "err": {
+                    "message": "AssertionError: expected '' not to be empty (false negative fail)",
+                    "estack": "AssertionError: expected '' not to be empty (false negative fail)\n    at Assertion.fail (node_modules/should/cjs/should.js:275:17)\n    at Assertion.value [as empty] (node_modules/should/cjs/should.js:368:17)\n    at exports.validateAPIModelResponse (util/responseDataModel.js:14:105)\n    at Context.<anonymous> (test/FestivalDataAPITest.js:44:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                    "diff": null
+                  },
+                  "uuid": "b2e69740-f207-43b3-8eaa-de6891b61a4f",
+                  "parentUUID": "74e64411-8a07-4aed-8397-5c91b1b57f95",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "b2e69740-f207-43b3-8eaa-de6891b61a4f"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 284,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "3940e8b2-2117-49db-94bd-29ae809a16d4",
+              "title": "GET Request test suite 2",
+              "fullFile": "/Users/dilipdronadula/Documents/Workspace/EnergyAustraliaCodingTest/test/FestivalDataAPITest.js",
+              "file": "/test/FestivalDataAPITest.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Verify if response adheres to API spec Model",
+                  "fullTitle": "Music festival data test suite GET Request test suite 2 Verify if response adheres to API spec Model",
+                  "timedOut": false,
+                  "duration": 183,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "let res = await supertest(baseUrl).get(apiEndpoint).retry(2)\n  .set('Accept', 'application/json')\n  .set('Content-Type', 'application/json');\nres.should.be.json();\nresDataModel.validateAPIModelResponse(res);",
+                  "err": {
+                    "message": "AssertionError: expected '' not to be empty (false negative fail)",
+                    "estack": "AssertionError: expected '' not to be empty (false negative fail)\n    at Assertion.fail (node_modules/should/cjs/should.js:275:17)\n    at Assertion.value [as empty] (node_modules/should/cjs/should.js:368:17)\n    at exports.validateAPIModelResponse (util/responseDataModel.js:14:105)\n    at Context.<anonymous> (test/FestivalDataAPITest.js:44:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                    "diff": null
+                  },
+                  "uuid": "89d7c11b-65c8-4b14-8081-f7d3b4c953c0",
+                  "parentUUID": "3940e8b2-2117-49db-94bd-29ae809a16d4",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "89d7c11b-65c8-4b14-8081-f7d3b4c953c0"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 183,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "a84255d3-8d93-47b8-8ab5-801f3db6ea7a",
+              "title": "GET Request test suite 3",
+              "fullFile": "/Users/dilipdronadula/Documents/Workspace/EnergyAustraliaCodingTest/test/FestivalDataAPITest.js",
+              "file": "/test/FestivalDataAPITest.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Verify if response adheres to API spec Model",
+                  "fullTitle": "Music festival data test suite GET Request test suite 3 Verify if response adheres to API spec Model",
+                  "timedOut": false,
+                  "duration": 200,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "let res = await supertest(baseUrl).get(apiEndpoint).retry(2)\n  .set('Accept', 'application/json')\n  .set('Content-Type', 'application/json');\nres.should.be.json();\nresDataModel.validateAPIModelResponse(res);",
+                  "err": {
+                    "message": "AssertionError: expected '' to be an array\n    expected '' to have [[Class]] Array",
+                    "estack": "AssertionError: expected '' to be an array\n    expected '' to have [[Class]] Array\n    at Assertion.fail (node_modules/should/cjs/should.js:275:17)\n    at Assertion.value [as Array] (node_modules/should/cjs/should.js:356:19)\n    at exports.validateAPIModelResponse (util/responseDataModel.js:6:31)\n    at Context.<anonymous> (test/FestivalDataAPITest.js:44:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                    "diff": null
+                  },
+                  "uuid": "0d7d3549-4246-4d99-b2d2-c9e61aaed1b7",
+                  "parentUUID": "a84255d3-8d93-47b8-8ab5-801f3db6ea7a",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "0d7d3549-4246-4d99-b2d2-c9e61aaed1b7"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 200,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "953504e3-fda6-45ef-8340-4a8c2ab78bc6",
+              "title": "GET Request test suite 4",
+              "fullFile": "/Users/dilipdronadula/Documents/Workspace/EnergyAustraliaCodingTest/test/FestivalDataAPITest.js",
+              "file": "/test/FestivalDataAPITest.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Verify if response adheres to API spec Model",
+                  "fullTitle": "Music festival data test suite GET Request test suite 4 Verify if response adheres to API spec Model",
+                  "timedOut": false,
+                  "duration": 93,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "let res = await supertest(baseUrl).get(apiEndpoint).retry(2)\n  .set('Accept', 'application/json')\n  .set('Content-Type', 'application/json');\nres.should.be.json();\nresDataModel.validateAPIModelResponse(res);",
+                  "err": {
+                    "message": "AssertionError: expected '' to be an array\n    expected '' to have [[Class]] Array",
+                    "estack": "AssertionError: expected '' to be an array\n    expected '' to have [[Class]] Array\n    at Assertion.fail (node_modules/should/cjs/should.js:275:17)\n    at Assertion.value [as Array] (node_modules/should/cjs/should.js:356:19)\n    at exports.validateAPIModelResponse (util/responseDataModel.js:6:31)\n    at Context.<anonymous> (test/FestivalDataAPITest.js:44:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                    "diff": null
+                  },
+                  "uuid": "ef44b7f5-f7d4-4a1d-9eeb-130eb6059a07",
+                  "parentUUID": "953504e3-fda6-45ef-8340-4a8c2ab78bc6",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "ef44b7f5-f7d4-4a1d-9eeb-130eb6059a07"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 93,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "60d998e2-8d0a-49e2-a605-f5ef45cc34b5",
+              "title": "GET Request test suite 5",
+              "fullFile": "/Users/dilipdronadula/Documents/Workspace/EnergyAustraliaCodingTest/test/FestivalDataAPITest.js",
+              "file": "/test/FestivalDataAPITest.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Verify if response adheres to API spec Model",
+                  "fullTitle": "Music festival data test suite GET Request test suite 5 Verify if response adheres to API spec Model",
+                  "timedOut": false,
+                  "duration": 99,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "let res = await supertest(baseUrl).get(apiEndpoint).retry(2)\n  .set('Accept', 'application/json')\n  .set('Content-Type', 'application/json');\nres.should.be.json();\nresDataModel.validateAPIModelResponse(res);",
+                  "err": {
+                    "message": "AssertionError: expected '' not to be empty (false negative fail)",
+                    "estack": "AssertionError: expected '' not to be empty (false negative fail)\n    at Assertion.fail (node_modules/should/cjs/should.js:275:17)\n    at Assertion.value [as empty] (node_modules/should/cjs/should.js:368:17)\n    at exports.validateAPIModelResponse (util/responseDataModel.js:14:105)\n    at Context.<anonymous> (test/FestivalDataAPITest.js:44:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                    "diff": null
+                  },
+                  "uuid": "9e71fc4d-11ad-492f-b18e-1ad80ef79b7b",
+                  "parentUUID": "60d998e2-8d0a-49e2-a605-f5ef45cc34b5",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "9e71fc4d-11ad-492f-b18e-1ad80ef79b7b"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 99,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "798f4540-be84-41d9-bb0f-4bc8352aef2b",
+              "title": "GET Request test suite 6",
+              "fullFile": "/Users/dilipdronadula/Documents/Workspace/EnergyAustraliaCodingTest/test/FestivalDataAPITest.js",
+              "file": "/test/FestivalDataAPITest.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Verify if response adheres to API spec Model",
+                  "fullTitle": "Music festival data test suite GET Request test suite 6 Verify if response adheres to API spec Model",
+                  "timedOut": false,
+                  "duration": 93,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "let res = await supertest(baseUrl).get(apiEndpoint).retry(2)\n  .set('Accept', 'application/json')\n  .set('Content-Type', 'application/json');\nres.should.be.json();\nresDataModel.validateAPIModelResponse(res);",
+                  "err": {
+                    "message": "AssertionError: name and recordLabel data is missing{\n  \"name\": \"Squint-281\"\n}",
+                    "estack": "AssertionError: name and recordLabel data is missing{\n  \"name\": \"Squint-281\"\n}\n    at Assertion.fail (node_modules/should/cjs/should.js:275:17)\n    at Assertion.value (node_modules/should/cjs/should.js:356:19)\n    at exports.validateAPIModelResponse (util/responseDataModel.js:12:68)\n    at Context.<anonymous> (test/FestivalDataAPITest.js:44:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                    "diff": "- 1\n+ 2\n"
+                  },
+                  "uuid": "4da3dc29-4693-444e-97fd-a6a8e6b5f3f6",
+                  "parentUUID": "798f4540-be84-41d9-bb0f-4bc8352aef2b",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "4da3dc29-4693-444e-97fd-a6a8e6b5f3f6"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 93,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "ddb02842-b4f5-412f-8d2f-f4ddc4f0af74",
+              "title": "GET Request test suite 7",
+              "fullFile": "/Users/dilipdronadula/Documents/Workspace/EnergyAustraliaCodingTest/test/FestivalDataAPITest.js",
+              "file": "/test/FestivalDataAPITest.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Verify if response adheres to API spec Model",
+                  "fullTitle": "Music festival data test suite GET Request test suite 7 Verify if response adheres to API spec Model",
+                  "timedOut": false,
+                  "duration": 96,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "let res = await supertest(baseUrl).get(apiEndpoint).retry(2)\n  .set('Accept', 'application/json')\n  .set('Content-Type', 'application/json');\nres.should.be.json();\nresDataModel.validateAPIModelResponse(res);",
+                  "err": {
+                    "message": "AssertionError: expected '' not to be empty (false negative fail)",
+                    "estack": "AssertionError: expected '' not to be empty (false negative fail)\n    at Assertion.fail (node_modules/should/cjs/should.js:275:17)\n    at Assertion.value [as empty] (node_modules/should/cjs/should.js:368:17)\n    at exports.validateAPIModelResponse (util/responseDataModel.js:14:105)\n    at Context.<anonymous> (test/FestivalDataAPITest.js:44:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                    "diff": null
+                  },
+                  "uuid": "9f2efb84-6443-4e57-b899-f986b7f215ee",
+                  "parentUUID": "ddb02842-b4f5-412f-8d2f-f4ddc4f0af74",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "9f2efb84-6443-4e57-b899-f986b7f215ee"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 96,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "8efef919-acf4-4775-a928-bd2d7e2582b6",
+              "title": "GET Request test suite 8",
+              "fullFile": "/Users/dilipdronadula/Documents/Workspace/EnergyAustraliaCodingTest/test/FestivalDataAPITest.js",
+              "file": "/test/FestivalDataAPITest.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Verify if response adheres to API spec Model",
+                  "fullTitle": "Music festival data test suite GET Request test suite 8 Verify if response adheres to API spec Model",
+                  "timedOut": false,
+                  "duration": 97,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let res = await supertest(baseUrl).get(apiEndpoint).retry(2)\n  .set('Accept', 'application/json')\n  .set('Content-Type', 'application/json');\nres.should.be.json();\nresDataModel.validateAPIModelResponse(res);",
+                  "err": {},
+                  "uuid": "e425e75f-e253-4e1d-a4a6-8a01539d1ccc",
+                  "parentUUID": "8efef919-acf4-4775-a928-bd2d7e2582b6",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e425e75f-e253-4e1d-a4a6-8a01539d1ccc"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 97,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "6582af90-c5ad-4cac-a644-e227f12dd184",
+              "title": "GET Request test suite 9",
+              "fullFile": "/Users/dilipdronadula/Documents/Workspace/EnergyAustraliaCodingTest/test/FestivalDataAPITest.js",
+              "file": "/test/FestivalDataAPITest.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Verify if response adheres to API spec Model",
+                  "fullTitle": "Music festival data test suite GET Request test suite 9 Verify if response adheres to API spec Model",
+                  "timedOut": false,
+                  "duration": 97,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "let res = await supertest(baseUrl).get(apiEndpoint).retry(2)\n  .set('Accept', 'application/json')\n  .set('Content-Type', 'application/json');\nres.should.be.json();\nresDataModel.validateAPIModelResponse(res);",
+                  "err": {
+                    "message": "AssertionError: expected '' not to be empty (false negative fail)",
+                    "estack": "AssertionError: expected '' not to be empty (false negative fail)\n    at Assertion.fail (node_modules/should/cjs/should.js:275:17)\n    at Assertion.value [as empty] (node_modules/should/cjs/should.js:368:17)\n    at exports.validateAPIModelResponse (util/responseDataModel.js:14:105)\n    at Context.<anonymous> (test/FestivalDataAPITest.js:44:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                    "diff": null
+                  },
+                  "uuid": "b78d2e2b-1a79-4a8a-a43c-ec293879e616",
+                  "parentUUID": "6582af90-c5ad-4cac-a644-e227f12dd184",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "b78d2e2b-1a79-4a8a-a43c-ec293879e616"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 97,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "4b404344-0ad3-4c9a-8206-b9e697721849",
+              "title": "GET Request test suite 10",
+              "fullFile": "/Users/dilipdronadula/Documents/Workspace/EnergyAustraliaCodingTest/test/FestivalDataAPITest.js",
+              "file": "/test/FestivalDataAPITest.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Verify if response adheres to API spec Model",
+                  "fullTitle": "Music festival data test suite GET Request test suite 10 Verify if response adheres to API spec Model",
+                  "timedOut": false,
+                  "duration": 94,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "let res = await supertest(baseUrl).get(apiEndpoint).retry(2)\n  .set('Accept', 'application/json')\n  .set('Content-Type', 'application/json');\nres.should.be.json();\nresDataModel.validateAPIModelResponse(res);",
+                  "err": {
+                    "message": "AssertionError: expected '' to be an array\n    expected '' to have [[Class]] Array",
+                    "estack": "AssertionError: expected '' to be an array\n    expected '' to have [[Class]] Array\n    at Assertion.fail (node_modules/should/cjs/should.js:275:17)\n    at Assertion.value [as Array] (node_modules/should/cjs/should.js:356:19)\n    at exports.validateAPIModelResponse (util/responseDataModel.js:6:31)\n    at Context.<anonymous> (test/FestivalDataAPITest.js:44:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                    "diff": null
+                  },
+                  "uuid": "53311458-da91-47cf-ad1d-f53136341807",
+                  "parentUUID": "4b404344-0ad3-4c9a-8206-b9e697721849",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "53311458-da91-47cf-ad1d-f53136341807"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 94,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.0.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}
