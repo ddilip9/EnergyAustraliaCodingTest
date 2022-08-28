@@ -13,6 +13,7 @@ git clone (https://github.com/ddilip9/EnergyAustraliaCodingTest.git)
 Install Dependencies:
 
 npm install
+
 npm i --save mocha chai supertest
 
 To run the test
